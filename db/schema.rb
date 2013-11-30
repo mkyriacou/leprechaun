@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131129230216) do
+ActiveRecord::Schema.define(:version => 20131130060118) do
+
+  create_table "item_list_users", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "list_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.integer  "list_id"
+    t.integer  "owner_id"
+    t.integer  "reserver_id"
+    t.integer  "buyer_id"
+    t.string   "item_name"
+    t.string   "category"
+    t.string   "known_locations"
+    t.string   "price_range"
+    t.string   "items_notes"
+    t.string   "image_link"
+    t.string   "item_link"
+    t.boolean  "owner_initiated"
+    t.boolean  "bought"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "lists", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "description"
+    t.text     "generally_i_like"
+    t.boolean  "ping_if_reserved"
+    t.boolean  "ping_if_bought"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -24,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20131129230216) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
