@@ -8,11 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   # attr_accessible :title, :body
 
-  has_many :item_list_users
-  has_many :lists, through: :item_list_users
-  has_many :items, through: :item_list_users
-
-
-  
+  has_many :list_user
+  has_many :lists
 
 end

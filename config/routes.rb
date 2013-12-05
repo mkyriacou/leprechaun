@@ -5,4 +5,8 @@ Leprechaun::Application.routes.draw do
 
   resources :dashboard
 
+  resources :lists do
+  	resources :items#, :comments
+  end
+
 end
