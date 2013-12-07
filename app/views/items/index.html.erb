@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="headings">
+    <h1><%= @this_list.title %></h1>
+    <h2><%= @this_list.description %></h2>
+  </div>
+  <div id="listing_of_items">
+    <% if @items.length == 0 %>
+      <p>No items to show yet!</p>
+    <% else %>
+      <table>
+        <hr>
+        <% @items.each do |current_item| %>
+          <tr><td>@current_item.item_name</td></tr>
+          <tr><td>@current_item.price_range</td></tr>
+          <tr><td>@current_item.price_range</td></tr>
+          <tr><td>@current_item.itemcategory</td></tr>
+          <hr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+
+  <div id="new_item_form" class="hidden">
+    here is where the partial will be interested as a template most probably
+    for both new and edit
+  </div>
+
+  <button id="new_item" class="btn btn-primary">Add An Item</button>
+  <button id="edit_item" class="btn btn-primary">Edit An Item (not used yet)</button>
+
+  <button class="btn btn-primary"> <%= link_to "Back", '/' %></button>
+</div>
+
+<!--  attr_accessible :list_id, :owner_id, :reserver_id, :buyer_id, :item_name, :category, :known_locations, :price_range, :items_notes, :image_link, :item_link, :owner_initiated, :bought
+ -->

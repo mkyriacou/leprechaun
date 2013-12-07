@@ -10,12 +10,16 @@ class ListsController < ApplicationController
   end
 
 
-  # def new
-  #   @list = List.new
-    # respond_to do |format|
-    #   format.json {render json: @list}
-    # end
-  # end
+  def show
+    # # add some security ;)
+    # #all_list = List.where("user_id = ?", current_user.id)
+
+    # @list = List.find(params[:id])
+    # @items = @list.items #what if there is nothing?
+    # # # respond_to do |format|
+    # # #   format.json {render json: @items}
+    # # end
+  end
 
   def create
   	#receives params from a form-for
